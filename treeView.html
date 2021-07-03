@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+ul, #myUL {
+  list-style-type: none;
+}
+
+#myUL {
+  margin: 0;
+  padding: 0;
+}
+
+.caret {
+  cursor: pointer;
+  -webkit-user-select: none; /* Safari 3.1+ */
+  -moz-user-select: none; /* Firefox 2+ */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none;
+}
+
+.caret::before {
+  content: "\25B6";
+  color: black;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.caret-down::before {
+  -ms-transform: rotate(90deg); /* IE 9 */
+  -webkit-transform: rotate(90deg); /* Safari */'
+  transform: rotate(90deg);  
+}
+
+.nested {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+</style>
+</head>
+<body>
+
+
+
+
+<ul id="myUL">
+  <li><span class="caret">vice chancellor</span>
+    <ul class="nested">
+     
+      <li>Dr Ahmed</li>
+      
+    </ul>
+  </li>
+  <li><span class="caret">Faculty Head</span>
+    <ul class="nested">
+     
+      <li>Dr Farin</li>
+    
+    </ul>
+    <li><span class="caret">Department Head</span>
+        <ul class="nested">
+         
+          <li>Dr Mim</li>
+        
+        </ul>
+  </li>
+  <li><span class="caret">Professor</span>
+    <ul class="nested">
+     
+      
+      <li><span class="caret">Dr Ahmed</span>
+        <ul class="nested">
+          <li>vice chancellor</li>
+          
+        </ul>
+      </li>  
+      <li><span class="caret">Dr Farin</span>
+        <ul class="nested">
+          <li>Faculty Head</li>
+       
+        </ul>
+      </li> 
+      <li><span class="caret">Dr Mim</span>
+        <ul class="nested">
+          <li>Department Head</li>
+          <li>Admission In Charge</li>
+          
+        </ul>
+      </li> 
+    </ul>
+  </li>
+  <li><span class="caret"> Associate Professor</span>
+    <ul class="nested">
+     
+      
+      <li><span class="caret">Dr Ratan</span>
+        <ul class="nested">
+          <li>Student Welfare in charge</li>
+          
+        </ul>
+      </li>  
+      <li>Dr Masum</li>
+      <li><span class="caret">Dr Shamim</span>
+        <ul class="nested">
+          <li>Student Welfare in charge</li>
+       
+        </ul>
+      </li> 
+      <li>Dr Masum</li>
+     
+    </ul>
+  </li>
+  <li><span class="caret"> Assistant  Professor</span>
+    <ul class="nested">
+     
+        <li>Mr Tamim</li>
+        <li>Mrs Labiba</li>
+      <li><span class="caret">Mr Yatin</span>
+        <ul class="nested">
+          <li>Admission in charge</li>
+         
+        </ul>
+        <li>Mrs Farhana</li>
+      </li>  
+     
+
+      
+     
+    </ul>
+  </li>
+  <li><span class="caret">Student welfare in charge</span>
+    <ul class="nested">
+     
+      <li>Dr Ratan</li>
+      <li>Dr Shamim</li>
+    
+    </ul>
+</li>
+<li><span class="caret">Admission in charge</span>
+    <ul class="nested">
+     
+      <li>Dr Mim</li>
+      <li>Mr Yatin</li>
+    
+    </ul>
+</li>
+</ul>
+
+<script>
+var toggler = document.getElementsByClassName("caret");
+var i;
+
+for (i = 0; i < toggler.length; i++) {
+  toggler[i].addEventListener("click", function() {
+    this.parentElement.querySelector(".nested").classList.toggle("active");
+    this.classList.toggle("caret-down");
+  });
+}
+</script>
+
+</body>
+</html>
